@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/inner_page',[\App\Http\Controllers\pageController::class,'page_inner_page']);
+Route::get('/portfolio-details',[\App\Http\Controllers\pageController::class,'page_portfolio_details']);
+Route::get('/{id}',[App\Http\Controllers\pageController::class,'page_home_redirect']);
+Route::post('/contact/submit',[\App\Http\Controllers\pageController::class,'page_sumbit_contact']);
